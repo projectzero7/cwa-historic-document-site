@@ -1,24 +1,19 @@
-# README
+# Civil Works Administration Historical Document Site
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
 
-Things you may want to cover:
+First, install the necessary dependencies
 
-* Ruby version
+`bundle install --without production`
 
-* System dependencies
+Next, update your database
 
-* Configuration
+`rake db:schema:load`
 
-* Database creation
+Finally, launch the server locally
 
-* Database initialization
+`rails -s`
 
-* How to run the test suite
+## Deployment to Heroku
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The website is already configured to work with Heroku. First, you must create a Heroku project. Next, you must add the PostgreSQL add-on to the project through the Heroku dashboard. Then you are ready to push to Heroku. Make sure to migrate the Heroku database to make the application work.
