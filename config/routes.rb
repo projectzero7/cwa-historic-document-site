@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
-  resources :documents
   root 'documents#index'
+  get  '/signup',  to: 'users#new'
+  post '/signup',  to: 'users#create'
+  resources :documents
+  resources :users
 end
