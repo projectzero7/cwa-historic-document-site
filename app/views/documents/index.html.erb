@@ -15,8 +15,10 @@
       <tr>
         <td><%= document.project_id %></td>
         <td class='center'><%= link_to 'Show', document, :class => 'btn btn-default' %></td>
+        <% if logged_in? %>
         <td class='center'><%= link_to 'Edit', edit_document_path(document), :class => 'btn btn-default' %></td>
         <td class='center'><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Document', new_document_path, :class => 'btn btn-default' %>
+<% if logged_in? %>
+  <%= link_to 'New Document', new_document_path, :class => 'btn btn-default' %>
+<% end %>

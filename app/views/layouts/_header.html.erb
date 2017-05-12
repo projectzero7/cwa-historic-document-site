@@ -4,9 +4,18 @@
     <nav>
       <ul class='nav navbar-nav navbar-right'>
         <li><%= link_to 'Home',    root_path %></li>
-        <li><%= link_to 'Sign up', signup_path %></li>
-        <li><%= link_to 'Log in',  '#' %></li>
+        <% if !logged_in? %>
+          <li><%= link_to 'Sign up', signup_path %></li>
+          <li><%= link_to 'Log in',  login_path %></li>
+        <% else %>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
 </header>
+<div class='container'>
+  <% if logged_in? %>
+    <p>Logged in as <strong><%= current_user.name %></strong></p>
+  <% end %>
+</div>
